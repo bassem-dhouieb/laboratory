@@ -6,16 +6,16 @@ import 'package:get/get.dart';
 Color color1 = Color(0xff76A371);
 Color color2 = Color(0xff000000);
 
-class SheetDetails extends StatefulWidget {
-  const SheetDetails({
+class PdfViewer extends StatefulWidget {
+  const PdfViewer({
     Key? key,
   }) : super(key: key);
 
   @override
-  State<SheetDetails> createState() => _SheetDetailsState();
+  State<PdfViewer> createState() => _PdfViewerState();
 }
 
-class _SheetDetailsState extends State<SheetDetails> {
+class _PdfViewerState extends State<PdfViewer> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

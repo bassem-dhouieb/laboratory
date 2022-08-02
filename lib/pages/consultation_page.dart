@@ -1,22 +1,23 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:laboratory/pages/chooser.dart';
-import 'package:laboratory/pages/consultation_page.dart';
+import 'package:laboratory/pages/sheet_page.dart';
+import 'package:laboratory/widgets/consultation_list_item.dart';
 import 'package:laboratory/widgets/sheet_list_item.dart';
 import 'package:laboratory/pages/home_page.dart';
 
 Color color1 = Color(0xff76A371);
 Color color2 = Color(0xff000000);
 
-class SheetPage extends StatefulWidget {
-  const SheetPage({Key? key}) : super(key: key);
+class ConsultationPage extends StatefulWidget {
+  const ConsultationPage({Key? key}) : super(key: key);
 
   @override
-  State<SheetPage> createState() => _SheetPageState();
+  State<ConsultationPage> createState() => _ConsultationPageState();
 }
 
-class _SheetPageState extends State<SheetPage> {
-  int pageIndex = 1;
+class _ConsultationPageState extends State<ConsultationPage> {
+  int pageIndex = 2;
   DateTime _selectedDate = DateTime.now();
   List<Widget> routes = [HomePage(), SheetPage(), ConsultationPage()];
   var scaffoldKey = GlobalKey<ScaffoldState>();
@@ -93,7 +94,7 @@ class _SheetPageState extends State<SheetPage> {
       body: ListView.builder(
         itemCount: 9,
         itemBuilder: (context, index) {
-          return Sheet();
+          return Consultation();
         },
       ),
     );

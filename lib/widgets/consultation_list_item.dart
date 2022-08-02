@@ -2,14 +2,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:laboratory/pages/consultation_details.dart';
 import 'package:laboratory/pages/pdf_viewer.dart';
 import 'package:laboratory/pages/sheet_details.dart';
 
 Color color1 = Color(0xff76A371);
 Color color2 = Color(0xff000000);
 
-class Sheet extends StatelessWidget {
-  const Sheet({Key? key}) : super(key: key);
+class Consultation extends StatelessWidget {
+  const Consultation({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +25,7 @@ class Sheet extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(20),
               child: Icon(
-                Icons.assignment_rounded,
+                Icons.edit_note,
                 size: 40,
                 color: Colors.black,
               ),
@@ -35,7 +36,7 @@ class Sheet extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(top: 8.0),
                   child: Text(
-                    "Bilan",
+                    "Consultation",
                     style: TextStyle(
                         fontSize: 26,
                         fontWeight: FontWeight.w400,
@@ -67,7 +68,7 @@ class Sheet extends StatelessWidget {
                         onPressed: () => Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => SheetDetails()))),
+                                builder: (context) => ConsultationDetails()))),
                   ),
                 ],
               ),

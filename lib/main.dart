@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:laboratory/widgets/add_appointment_bar.dart';
+import 'package:laboratory/pages/add_appointment_bar.dart';
+import 'package:laboratory/pages/chooser.dart';
 import 'package:laboratory/pages/home_page.dart';
 import 'package:laboratory/pages/login_page.dart';
 

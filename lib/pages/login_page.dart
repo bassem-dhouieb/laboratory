@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:laboratory/pages/chooser.dart';
 import 'package:laboratory/pages/home_page.dart';
 import 'package:laboratory/pages/signup_page.dart';
 
@@ -130,7 +131,8 @@ class _LoginPageState extends State<LoginPage> {
             ),
             InkWell(
               onTap: () {
-                Get.to(() => HomePage());
+                Navigator.pop(context);
+                Get.to(() => ChooserPage());
               },
               child: Container(
                 width: w * 0.5,

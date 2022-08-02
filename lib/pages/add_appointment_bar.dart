@@ -18,6 +18,7 @@ class _AddAppointmentPageState extends State<AddAppointmentPage> {
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _noteController = TextEditingController();
   DateTime _selectedDate = DateTime.now();
+  DateTime _selectedBirthday = DateTime.now();
   List<bool> isSelected = [for (var i = 0; i < 40; i++) false];
   int _selectedReminder = 5;
   List<int> reminderList = [5, 10, 15, 20];
@@ -43,6 +44,18 @@ class _AddAppointmentPageState extends State<AddAppointmentPage> {
                 controller: _nameController,
               ),
               MyInputField(
+                title: "Birthday",
+                hint: DateFormat.yMd().format(_selectedBirthday),
+                widget: IconButton(
+                    onPressed: () {
+                      _getDateFromUser("Birthday");
+                    },
+                    icon: Icon(
+                      Icons.calendar_month_outlined,
+                      color: Colors.grey,
+                    )),
+              ),
+              MyInputField(
                 title: "Note",
                 hint: "Entre your note",
                 controller: _noteController,
@@ -52,7 +65,7 @@ class _AddAppointmentPageState extends State<AddAppointmentPage> {
                 hint: DateFormat.yMd().format(_selectedDate),
                 widget: IconButton(
                     onPressed: () {
-                      _getDateFromUser();
+                      _getDateFromUser("Date");
                     },
                     icon: Icon(
                       Icons.calendar_month_outlined,
@@ -136,8 +149,12 @@ class _AddAppointmentPageState extends State<AddAppointmentPage> {
                 ),
               ),
               Container(
-                child: MyButton(label: "Done", onTap: () => _validateDate()),
-                margin: EdgeInsets.only(top: 5),
+                child: MyButton(
+                  label: "Done",
+                  onTap: () => _validateDate(),
+                  width: 120,
+                ),
+                margin: EdgeInsets.only(top: 5, bottom: 10),
                 alignment: Alignment.topRight,
               )
             ],
@@ -183,16 +200,20 @@ class _AddAppointmentPageState extends State<AddAppointmentPage> {
     );
   }
 
-  _getDateFromUser() async {
+  _getDateFromUser(String title) async {
     DateTime? _pickerDate = await showDatePicker(
         context: context,
         initialDate: DateTime.now(),
-        firstDate: DateTime(2015),
+        firstDate: DateTime(1000),
         lastDate: DateTime(2121));
 
     if (_pickerDate != null) {
       setState(() {
-        _selectedDate = _pickerDate;
+        if (title == "Date") {
+          _selectedDate = _pickerDate;
+        } else {
+          _selectedBirthday = _pickerDate;
+        }
       });
     } else {
       print("it's null or something is wrong");
